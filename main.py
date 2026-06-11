@@ -30,7 +30,7 @@ def get_model(user_id):
     persona = user_memory.get(user_id, {}).get("persona", "👤 Друг")
 
     return genai.GenerativeModel(
-        "gemini-1.5-flash",
+        "gemini-2.5-flash",
         system_instruction=PERSONAS[persona]
     )
 
