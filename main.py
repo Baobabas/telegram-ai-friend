@@ -40,6 +40,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"Ошибка: {e}")
 
+async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "🎤 Голосовое сообщение получено! Пока я умею отвечать только на текст."
+    )
+
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
 
@@ -48,6 +53,10 @@ def main():
 
     app.add_handler(
         MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)
+    )
+
+    app.add_handler(
+        MessageHandler(filters.VOICE, handle_voice)
     )
 
     print("Бот запущен...")
