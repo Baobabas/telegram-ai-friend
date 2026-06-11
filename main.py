@@ -16,8 +16,8 @@ GEMINI_API_KEY = os.getenv("AI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 model = genai.GenerativeModel(
-    "gemini-1.5-flash",
-    system_instruction="Ты дружелюбный собеседник. Отвечай кратко и естественно."
+    "gemini-2.5-flash"),
+    (system_instruction="Ты дружелюбный собеседник. Отвечай кратко и естественно."
 )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
